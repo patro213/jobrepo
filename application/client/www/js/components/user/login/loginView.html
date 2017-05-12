@@ -1,0 +1,54 @@
+<div class="section" style="margin-top:10%">
+      <div class="container">
+      <div class="well">
+        <div class="row">
+          <div class="col-md-4 col-sm-offset-4">
+            <form class="form-horizontal" role="form" novalidate>
+              <legend><translate>login.legend</translate></legend>
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <label for="inputEmailLogin" class="control-label"><translate>login.email</translate></label>
+                </div>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" name="email" ng-model="$root.email" id="inputEmailLogin" placeholder="{{ 'login.email' | translate }}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <label for="inputPassword3" class="control-label" ><translate>login.password</translate></label>
+                </div>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword3" placeholder="{{ 'login.password' | translate }}" name="password" ng-model="vm.login.password">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label class="control-label text-danger label-left" name="error" ng-if="vm.errorLogin"><translate>login.error.failed</translate></label>
+                  <label class="control-label text-success label-left" ng-show="$root.passwordRecoveryEmailSended"><translate>passwordRecovery.email-sended</translate></label>
+                  <label class="control-label text-success label-left" ng-show="$root.registrationEmailSended"><translate>register.registration-email-sended</translate></label>
+                  <label class="control-label text-success label-left" ng-show="$root.accountActivated"><translate>activation.account-activated</translate></label>
+                  <label class="control-label text-danger label-left" ng-show="$root.invalidActivationLink"><translate>activation.invalid-link</translate></label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary" ng-click="vm.login()"><translate>login.submit</translate></button>
+                  <button class="btn btn-default" ng-click="vm.toRegistration()"><translate>nav.top.register</translate></button>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                    <a ng-href="/#/passwordRecovery"><translate>login.forgotten-password</translate></a>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10">
+                    <a ng-href="/#/tokenRecovery"><translate>register.no-registration-email</translate></a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

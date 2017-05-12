@@ -1,0 +1,59 @@
+<div class="taskbar">
+  <div class="text-center">
+    <div class="taskbar-item" ng-class="{ active: vm.isActive('/project/{{vm.projectId}}') }" ng-click="vm.goHome($event)">
+      <div class="icon-home"></div>
+      <span><translate>project.taskbar.home</translate></span>
+    </div>
+    <div class="taskbar-item" ng-class="{ active: vm.isActive('/project/{{vm.projectId}}/drawings') }" ng-click="vm.goDrawings()">
+      <div class="icon-drawings"></div>
+      <span><translate>project.taskbar.drawings</translate></span>
+    </div>
+    <div class="taskbar-item" ng-class="{ active: vm.isActive('/project/{{vm.projectId}}/tests') }" ng-click="vm.goTests()">
+      <div class="icon-tests"></div>
+      <div class="greenCircle">{{vm.project.testsSuccessful}}</div>
+      <div class="redCircle">{{vm.project.testsFailed}}</div>
+      <span><translate>project.taskbar.tests</translate></span>
+    </div>
+    <div class="taskbar-item" ng-class="{ active: vm.isActive('/project/{{vm.projectId}}/users') }" ng-click="vm.goUsers()">
+      <div class="icon-users"></div>
+      <span><translate>project.taskbar.users</translate></span>
+    </div>
+    <div class="taskbar-item" ng-class="{ active: vm.isActive('/project/{{vm.projectId}}/settings') }" ng-click="vm.goSettings()">
+      <div class="icon-settings"></div>
+      <span><translate>project.taskbar.settings</translate></span>
+    </div>
+    <div class="taskbar-item-bottom" ng-click="vm.goOverview()">
+      <div class="icon-back"></div>
+      <span><translate>project.taskbar.back</translate></span>
+    </div>
+  </div>
+</div>
+<div class="project-main" ui-view>
+    <div class="section">
+            <div class="col-lg-8 col-md-offset-2">
+                <div class="well project-main-container">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img class="project-logo img-circle" ng-if="vm.project.logo != null" ng-src="{{vm.project.logo}}"/>
+                            <img class="project-logo img-circle" ng-if="vm.project.logo == null" src="/img/default-project-logo.png" />
+                        </div>
+                        <div class="col-md-6">
+                            <h2><b>{{vm.project.name}}</b></h2>
+                        </div>
+                    </div>
+                    <hr class="col-xs-11" style="background-color:black;margin-left:2%">
+                    <div class="row">
+                        <div class="col-sm-8 col-md-offset-2">
+                            <div class="description">{{vm.project.description | limitTo: 500}}{{vm.project.description.length > 500 ? '...' : ''}}</div>
+                        </div>
+                        <div class="col-sm-8" style="float:right;margin-top:5%">
+                            <div style="float:right"><b><translate>project.author</translate>: </b> {{vm.getProjectOwnerName()}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+

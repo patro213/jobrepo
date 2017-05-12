@@ -1,0 +1,77 @@
+<div class="section" style="margin-top:10%">
+      <div class="container">
+      <div class="well">
+        <div class="row">
+          <div class="col-md-4 col-sm-offset-4">
+			<form class="form-horizontal text-center" role="form" novalidate>
+				<div class="form-group">
+				<div class="col-sm-10">
+					<label for="projectName" class="control-label" ><translate>project.name</translate></label>
+				</div>
+				</div>
+				<div class="form-group">
+				<div class="col-sm-10">
+					<input type="name" class="form-control" id="projectName" placeholder="{{ 'project.name' | translate }}" name="name" ng-model="vmCreate.project.name">
+				</div>
+				</div>
+				<div class="form-group">
+				<div class="col-sm-10">
+					<label for="projectDesc" class="control-label" ><translate>project.description</translate></label>
+				</div>
+				</div>
+				<div class="form-group">
+				<div class="col-sm-10">
+					<textarea class="form-control" id="projectDesc" name="projectDesc" ng-model="vmCreate.project.description" rows=5>
+						<translate>project.description</translate>
+					</textarea>
+				</div>
+				</div>
+
+
+				<div class="form-group">
+				<div class="col-sm-10">
+					<img class="project-image img-circle" ng-show="vmCreate.project.logo != null && vmCreate.base64Photo.filetype == null" ng-src="{{vmCreate.project.logo}}" />
+					<img class="project-image img-circle" ng-show="vmCreate.base64Photo.filetype != null" ng-src="data:{{vmCreate.base64Photo.filetype}};base64, {{vmCreate.base64Photo.base64}}" />
+				</div>
+				</div>
+
+				<div class="form-group">
+				<div class="col-sm-10">
+                    <label class="btn btn-default btn-file" style="width:100%">
+                        <i class="glyphicon glyphicon-search"></i>
+                        <translate>project.logo</translate>
+                        <input type="file" id="logo" style="display: none;" ng-model="vmCreate.base64Photo" base-sixty-four-input>
+                    </label>
+                </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <label ng-if="vmCreate.errorName" class="control-label text-danger label-left">
+                            <translate>project.name.missing</translate>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <label ng-if="vmCreate.errorDescription" class="control-label text-danger label-left">
+                            <translate>project.description.missing</translate>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <label class="control-label text-danger label-left" ng-if="vmCreate.errorProjectCreation"><translate>project.error.creation</translate></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                <div class="col-sm-10">
+                  <button type="submit" style="width:100%;" class="btn btn-primary" ng-click="vmCreate.createProject()"><translate>project.create.new</translate></button>
+                </div>
+              </div>
+
+			</form>
+		 </div>
+        </div>
+      </div>
+    </div>
+</div>
